@@ -10,7 +10,8 @@ Returns:
 def create_sentences(df):
     # First let's join all 3 columns per row into one
     # Join the columns with a '-'
-    df['joined_columns'] = df.apply(lambda x: ' - '.join(map(str, x[['Name', 'Summary', 'Location']])), axis=1)
+    df['joined_columns'] = df.apply(lambda x: ' - '.join(
+        map(str, x[['Name', 'Summary', 'Location']])), axis=1)
     # Convert joined_columns to a list
     sentences = df['joined_columns'].to_list()
     return sentences
