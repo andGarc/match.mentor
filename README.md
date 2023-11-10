@@ -1,5 +1,11 @@
 # Mentor Match
 
+[![License](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE)
+[![GitHub Issues](https://img.shields.io/github/issues/andGarc/match.mentor.svg)](https://github.com/andGarc/match.mentor/issues)
+[![GitHub Stars](https://img.shields.io/github/stars/andGarc/match.mentor.svg)](https://github.com/andGarc/match.mentor/stargazers)
+[![GitHub Forks](https://img.shields.io/github/forks/andGarc/match.mentor.svg)](https://github.com/andGarc/match.mentor/network)
+
+
 Mentor Match is an application that leverages BERT (Bidirectional Encoder Representations from Transformers) to simplify the process of identifying potential mentees for mentors. This tool is designed to facilitate seamless mentor-mentee connections.
 
 
