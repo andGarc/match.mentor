@@ -20,6 +20,11 @@ pip install -r requirements.txt
 ```bash
 streamlit run Main.py
 ``````
+
+## Contributing  
+### Reporting Issues
+If you encounter any issues or have suggestions for improvements, please [open an issue](https://github.com/andGarc/match.mentor/issues). Provide a clear and detailed explanation of the problem, and if possible, include steps to reproduce it.
+
 ## License
 This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for more details.
 
