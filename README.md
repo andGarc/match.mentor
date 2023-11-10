@@ -2,6 +2,7 @@
 
 Mentor Match is an application that leverages BERT (Bidirectional Encoder Representations from Transformers) to simplify the process of identifying potential mentees for mentors. This tool is designed to facilitate seamless mentor-mentee connections.
 
+
 ## Features
 
 - BERT-powered matching algorithm for accurate and relevant mentor-mentee pairing
@@ -19,8 +20,14 @@ pip install -r requirements.txt
 ```bash
 streamlit run Main.py
 ``````
-## Contributing
 ## License
 This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for more details.
+
+## Acknowledgements
+Third party libraries and tools:
+ - [Streamlit](https://streamlit.io)
+ - [scikit-learn](https://scikit-learn.org/stable/)
+ - [SentenceTransformer](https://www.sbert.net)
+
 
 
