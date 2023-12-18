@@ -1,16 +1,18 @@
 import streamlit as st
 import pandas as pd
 import numpy as np
-from io import StringIO
+import seaborn as sns
+import matplotlib.pyplot as plt
+from io import StringIO, BytesIO
 from data.helpers import create_sentences, join_mentor_to_mentees,\
                          get_name_dict, get_index
 from models.predict_model import bert
 
 st.title('Match.Metor')
 
-app_tab, info_tab = st.tabs(['Home', 'Information'])
+tab_1, tab_2, tab_3 = st.tabs(['Connect', 'Explore','Learn'])
 
-with app_tab:
+with tab_1:
     # read files
     st.markdown("**Upload a file containg the list of mentors**")
     mentors_file = st.file_uploader('Choose a mentor file',
@@ -55,9 +57,12 @@ with app_tab:
         # add mentor to mentees
         sentences = join_mentor_to_mentees(sentences_mentors, sentences_mentees)
     
-        # get dictionaty containing mentor and corresponding indices
-        flipped_dict = get_name_dict(mentors_df)# what is this for?
-        # get index for selected mentor
+        # get dictionary with mentor and index
+        # the mentor's name is the key and the value the index 
+        # index is the order in the mentor file
+        flipped_dict = get_name_dict(mentors_df)
+
+        # get index for selected mentor from the dropdown
         index = get_index(mentor, flipped_dict)
         
         # find similarities using bert
@@ -81,7 +86,50 @@ with app_tab:
         for mentee, confidence in zip(ordered_list_mentees, increased_list):
             st.write(f"{mentee} -- [Confidence: {sorted_dict[confidence-1]}]")
 
-with info_tab:
+with tab_2:
+    st.markdown('**Mentor-Mentee Confidence Heatmap**')
+
+    def create_heatmap(mentors, mentees, confidence_values):
+        df = pd.DataFrame(confidence_values, index=mentors, columns=mentees)
+
+        # Create a heatmap using seaborn with white to green color map
+        plt.figure(figsize=(12, 8))
+        heatmap = sns.heatmap(df, annot=True, cmap='YlGn', fmt=".2f", cbar_kws={'label': 'Confidence (%)'})
+
+        # Set axis labels and plot title
+        plt.xlabel('Mentees')
+        plt.ylabel('Mentors')
+
+        # Move x-axis label to the top
+        heatmap.xaxis.set_label_position('top')
+        heatmap.xaxis.tick_top()
+
+        plt.title('Mentor-Mentee Confidence Heatmap')
+
+        # Save the plot to a BytesIO object
+        img_bytes = BytesIO()
+        plt.savefig(img_bytes, format='png')
+        img_bytes.seek(0)
+        plt.close()
+
+        return img_bytes
+
+    # prep dataframe for heatmap *** refactor
+    # get list of mentor and mentee names
+    list_of_mentor_names = mentors_df['Name'].tolist()
+    list_of_mentee_names = mentees_df['Name'].tolist()
+
+    confidence_values = [] # list to store list of confidence values
+
+    for index, item in enumerate(list_of_mentor_names):
+        similarities = bert(sentences[index])
+        confidence_values.append(similarities)
+   
+    st.image(create_heatmap(list_of_mentor_names, list_of_mentee_names, 
+                            confidence_values), 
+                            caption='Heatmap', use_column_width=True)
+
+with tab_3:
     st.markdown("""
 **Match.Mentor**
 
