@@ -1,4 +1,4 @@
-# Mentor.Match
+# Match.Mentor
 
 ![Mentor.Match Image](./docs/imgs/sample_image.png)
 
