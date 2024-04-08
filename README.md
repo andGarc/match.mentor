@@ -5,6 +5,7 @@
 [![GitHub Stars](https://img.shields.io/github/stars/andGarc/match.mentor.svg)](https://github.com/andGarc/match.mentor/stargazers)
 [![GitHub Forks](https://img.shields.io/github/forks/andGarc/match.mentor.svg)](https://github.com/andGarc/match.mentor/network)
 
+![Drag Racing](./docs/imgs/sample_image.png)
 
 Mentor Match is an application that leverages BERT (Bidirectional Encoder Representations from Transformers) model to facilitate seamless mentor-mentee connections. The app streamlines the process of identifying potential mentees, enabling mentors to discover ideal matches effortlessly based on their unique preferences and criteria.
 
@@ -30,7 +31,6 @@ Potential enhancements:
 - UI refinement 
 - Integrating a larger BERT model or Few-Shot learning 
 - Feature Expansion
-
 
 ## Running the Project
 
@@ -62,6 +62,5 @@ Third party libraries and tools:
  - [scikit-learn](https://scikit-learn.org/stable/)
  - [SentenceTransformer](https://www.sbert.net)
  - [BERT-Mini](https://huggingface.co/prajjwal1/bert-mini)
-
 
 
