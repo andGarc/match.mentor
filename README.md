@@ -27,6 +27,9 @@ Potential enhancements:
 - Integrating a larger BERT model or Few-Shot learning 
 - Feature Expansion
 
+### Further Readings
+(Is Cosine-Similarity of Embeddings Really About Similarity?)[https://arxiv.org/pdf/2403.05440]
+
 ## Running the Project
 
 Clone the repository and install the necessary dependencies to get started with Mentor Match.
