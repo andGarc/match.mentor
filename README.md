@@ -28,7 +28,7 @@ Potential enhancements:
 - Feature Expansion
 
 ### Further Readings
-(Is Cosine-Similarity of Embeddings Really About Similarity?)[https://arxiv.org/pdf/2403.05440]
+[Is Cosine-Similarity of Embeddings Really About Similarity?](https://arxiv.org/pdf/2403.0544)  
 
 ## Running the Project
 
